@@ -33,6 +33,49 @@ Add a `fade-img-loading` element to your html:
 </div>
 ```
 
+And add this in your application style:
+```
+@-webkit-keyframes imageBlur {
+    0% {
+        -webkit-filter: blur(5px);
+    }
+    50% {
+        -webkit-filter: blur(2px );
+    }
+    100% {
+        -webkit-filter: blur(0px );
+    }
+}
+
+@keyframes imageBlur {
+    0% {
+        -webkit-filter: blur(5px);
+    }
+    50% {
+        -webkit-filter: blur(2px);
+    }
+    100% {
+        -webkit-filter: blur(0px);
+    }
+}
+
+.blur {
+    -webkit-filter: blur(5px);
+}
+
+.img-show {
+    display: block;
+    -webkit-animation-name: imageBlur;
+    animation-name: imageBlur;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+}
+
+.img-hide {
+    display: none;
+}
+```
+
 # Params
 
 |Param      |Type   |Required |Default |Details |
