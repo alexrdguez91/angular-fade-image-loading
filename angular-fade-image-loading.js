@@ -1,7 +1,4 @@
 (function () {
-    var scripts = document.getElementsByTagName("script");
-    var currentScriptPath = scripts[scripts.length-1].src;
-
     var fadeImgLoadingModule = angular.module('ngFadeImgLoading', []);
     fadeImgLoadingModule.directive('fadeImgLoading', function () {
         return {
@@ -9,7 +6,7 @@
                 image: '@',
                 blur: '@'
             },
-            templateUrl: currentScriptPath.substring(0, currentScriptPath.lastIndexOf('/') + 1)+ 'angular-fade-image-loading.html',
+            template: "<img id='blur' class='blur' ng-src=\"{{blur}}\">\t\t\t\t<img id='image' class='img-hide' ng-src=\"{{image}}\">",
             link: function (scope, element, attrs) {
 
                 var smallImg = angular.element(element[0].children['blur']);
