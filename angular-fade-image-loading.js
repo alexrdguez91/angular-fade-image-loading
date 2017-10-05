@@ -18,6 +18,15 @@
                     realImg.addClass('img-show');
                 }).on('error', function () {
                 });
+
+		scope.$watch('image', function (newVal, oldVal) {
+                    if(newVal !== oldVal) {
+                        realImg.removeClass('img-show');
+                        realImg.addClass('img-hide');
+                        smallImg.removeClass('img-hide');
+                        smallImg.addClass('img-show');
+                    }
+                });
             }
         };
     });
